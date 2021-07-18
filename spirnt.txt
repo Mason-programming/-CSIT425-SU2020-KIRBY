@@ -1,1 +1,2 @@
 I will constuct the class hierarchy this week. I will implement five classses carRental, car, SUV, truck and motorcycle class. The base class will be carRental and the rest will inherit this one. My plan is place the vechicals into a linked list based of the vehical type. In Sprint 2 I will implement the a print function to print the cars by capacity.  
+

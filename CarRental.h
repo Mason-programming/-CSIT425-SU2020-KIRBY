@@ -95,7 +95,7 @@ public:
     }
     void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}
-    carRental* setNextPointer(){return link; }
+    carRental* getNextPointer(){return link; }
 };
 class motorcycle: private carRental{
     carRental* link;  
@@ -110,12 +110,7 @@ public:
         capacity = cap; 
         link = nullptr;
     }
-    void setVechicalInfo(string type, string brand, int num, int cap){
-        type = type;
-        brand = brand; 
-        number = num; 
-        capacity = cap; 
-    }
+    
     void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}
     carRental* setNextPointer(){return link; }

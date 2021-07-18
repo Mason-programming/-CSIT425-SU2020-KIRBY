@@ -26,7 +26,7 @@ public:
 };
 
 class car: private carRental{
-    car* link; 
+    carRental* link; 
 public:
     car():carRental(){
        link  = nullptr;  
@@ -45,14 +45,14 @@ public:
         number = num; 
         capacity = cap; 
     }
-    void setNextPointer(car* NC){link = NC;}
+    void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}
-    car* setNextPointer(){return link; }
+    carRental* setNextPointer(){return link; }
 
 
 };
 class SUV: private carRental{
-    SUV* link;
+    carRental* link;
 public: 
     SUV():carRental(){
         link = nullptr;
@@ -64,13 +64,13 @@ public:
         capacity = cap; 
          
     }
-    void setNextPointer(SUV* NC){link = NC;}
+    void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}
-    SUV* setNextPointer(){return link; }
+    carRental* setNextPointer(){return link; }
 
 };
 class truck: private carRental{
-    truck* link; 
+    carRental* link; 
 public: 
     truck():carRental(){
         link = nullptr;
@@ -81,12 +81,12 @@ public:
         number = num;
         capacity = cap;   
     }
-    void setNextPointer(truck* NC){link = NC;}
+    void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}
-    truck* setNextPointer(){return link; }
+    carRental* setNextPointer(){return link; }
 };
 class motorcycle: private carRental{
-    motorcycle* link;  
+    carRental* link;  
 public: 
     motorcycle():carRental(){
         link = nullptr;
@@ -98,7 +98,7 @@ public:
         capacity = cap; 
         link = nullptr;
     }
-    void setNextPointer(motorcycle* NC){link = NC;}
+    void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}
-    motorcycle* setNextPointer(){return link; }
+    carRental* setNextPointer(){return link; }
 };

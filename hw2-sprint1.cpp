@@ -6,6 +6,11 @@ using namespace std;
 
 int main(){
 
-    cout << to_string(7) << endl;
+    car* newCar = new car(); 
+    newCar->setVechicalInfo("sedan","Nissan",5,4);
+    cout << newCar->getCapcity() << endl; 
+
+
+
     return 0; 
 }

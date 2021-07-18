@@ -23,64 +23,82 @@ public:
         number = num; 
         capacity = cap;
     };
-    int insert(); 
-
 };
 
 class car: private carRental{
-    double millage; 
+    car* link; 
 public:
     car():carRental(){
-        millage = 0; 
+       link  = nullptr;  
     }
-    car(string type, string brand, int num, int cap, double mile):carRental(){
+    car(string type, string brand, int num, int cap):carRental(){
         type = type;
         brand = brand; 
         number = num;
         capacity = cap; 
-        millage = mile; 
+        link = nullptr;  
     }
+
+    void setVechicalInfo(string type, string brand, int num, int cap){
+        type = type;
+        brand = brand; 
+        number = num; 
+        capacity = cap; 
+    }
+    void setNextPointer(car* NC){link = NC;}
+    int getCapcity(){return capacity;}
+    car* setNextPointer(){return link; }
+
+
 };
 class SUV: private carRental{
-    double millage; 
+    SUV* link;
 public: 
-    SUV(double mile):carRental(){
-        millage = mile;
+    SUV():carRental(){
+        link = nullptr;
     }
-    SUV(string type, string brand, int num, int cap, double mile):carRental(){
+    SUV(string type, string brand, int num, int cap):carRental(){
         type = type;
         brand = brand; 
         number = num;
         capacity = cap; 
-        millage = mile; 
+         
     }
+    void setNextPointer(SUV* NC){link = NC;}
+    int getCapcity(){return capacity;}
+    SUV* setNextPointer(){return link; }
 
 };
 class truck: private carRental{
-    double millage; 
+    truck* link; 
 public: 
-    truck(double mile):carRental(){
-        millage = mile;
+    truck():carRental(){
+        link = nullptr;
     }
-    truck(string type, string brand, int num, int cap, double mile):carRental(){
+    truck(string type, string brand, int num, int cap):carRental(){
         type = type;
         brand = brand; 
         number = num;
-        capacity = cap; 
-        millage = mile; 
+        capacity = cap;   
     }
+    void setNextPointer(truck* NC){link = NC;}
+    int getCapcity(){return capacity;}
+    truck* setNextPointer(){return link; }
 };
 class motorcycle: private carRental{
-    double millage; 
+    motorcycle* link;  
 public: 
-    motorcycle(double mile):carRental(){
-        millage = mile;
+    motorcycle():carRental(){
+        link = nullptr;
     }
-    motorcycle(string type, string brand, int num, int cap, double mile):carRental(){
+    motorcycle(string type, string brand, int num, int cap):carRental(){
         type = type;
         brand = brand; 
         number = num;
         capacity = cap; 
-        millage = mile; 
+        link = nullptr;
     }
+    void setNextPointer(motorcycle* NC){link = NC;}
+    int getCapcity(){return capacity;}
+    motorcycle* setNextPointer(){return link; }
 };

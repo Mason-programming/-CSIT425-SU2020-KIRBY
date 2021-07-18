@@ -3,6 +3,8 @@
 using namespace std; 
 
 class carRental{
+
+protected: 
     string type; 
     string brand;
     int number; 
@@ -21,15 +23,64 @@ public:
         number = num; 
         capacity = cap;
     };
-};
-
-class car: public carRental{
-    
+    int insert(); 
 
 };
-class truck: public carRental{
+
+class car: private carRental{
+    double millage; 
+public:
+    car():carRental(){
+        millage = 0; 
+    }
+    car(string type, string brand, int num, int cap, double mile):carRental(){
+        type = type;
+        brand = brand; 
+        number = num;
+        capacity = cap; 
+        millage = mile; 
+    }
+};
+class SUV: private carRental{
+    double millage; 
+public: 
+    SUV(double mile):carRental(){
+        millage = mile;
+    }
+    SUV(string type, string brand, int num, int cap, double mile):carRental(){
+        type = type;
+        brand = brand; 
+        number = num;
+        capacity = cap; 
+        millage = mile; 
+    }
 
 };
-class motorcycle: public carRental{
-
+class truck: private carRental{
+    double millage; 
+public: 
+    truck(double mile):carRental(){
+        millage = mile;
+    }
+    truck(string type, string brand, int num, int cap, double mile):carRental(){
+        type = type;
+        brand = brand; 
+        number = num;
+        capacity = cap; 
+        millage = mile; 
+    }
+};
+class motorcycle: private carRental{
+    double millage; 
+public: 
+    motorcycle(double mile):carRental(){
+        millage = mile;
+    }
+    motorcycle(string type, string brand, int num, int cap, double mile):carRental(){
+        type = type;
+        brand = brand; 
+        number = num;
+        capacity = cap; 
+        millage = mile; 
+    }
 };

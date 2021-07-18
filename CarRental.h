@@ -64,6 +64,12 @@ public:
         capacity = cap; 
          
     }
+    void setVechicalInfo(string type, string brand, int num, int cap){
+        type = type;
+        brand = brand; 
+        number = num; 
+        capacity = cap; 
+    }
     void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}
     carRental* setNextPointer(){return link; }
@@ -81,6 +87,12 @@ public:
         number = num;
         capacity = cap;   
     }
+    void setVechicalInfo(string type, string brand, int num, int cap){
+        type = type;
+        brand = brand; 
+        number = num; 
+        capacity = cap; 
+    }
     void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}
     carRental* setNextPointer(){return link; }
@@ -97,6 +109,12 @@ public:
         number = num;
         capacity = cap; 
         link = nullptr;
+    }
+    void setVechicalInfo(string type, string brand, int num, int cap){
+        type = type;
+        brand = brand; 
+        number = num; 
+        capacity = cap; 
     }
     void setNextPointer(carRental* NC){link = NC;}
     int getCapcity(){return capacity;}

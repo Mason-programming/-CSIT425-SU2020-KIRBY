@@ -1,44 +1,74 @@
 #include <iostream>
-#include <string> 
-#include <fstream> 
+#include <string>  
 #include "CarRental.h"
 using namespace std; 
 
-carRental* insertInfo();
-void printAllVehicles();
-void menu();
-
+void menu();    
 int main(){
 
-    truck* newTruck = new truck();
-    newTruck->setVechicalInfo("tuck","ford",5,6);
-
-    car* newCar = new car(); 
-    newCar->setVechicalInfo("sedan","Nissan",5,4);
-    cout << newCar->getCapcity() << endl; 
-    newCar->setNextPointer(new carRental()); 
-    newCar->setVechicalInfo();
+    
+    menu();
+  
     return 0; 
 }
 
 void menu(){
+    carTypes newCar; 
+    carTypes oldCar; 
+    carTypes carNum2;
+    carTypes carNum3; 
+    carRental carList;
+    newCar.setTypes("sedan","Nissan",5,4);
+    oldCar.setTypes("truck","ford",5,3);
+    carNum2.setTypes("SUV","dodge",5,4);
+
+    carList.insertFirst(newCar);
+    carList.insertFirst(oldCar);
+    carList.insertFirst(carNum2);
+
     int keyStroke = 0; 
-    cout << "Enter a menu option"<< "\n" << "Press 2 to print all cars" << "\n" << "Press 3 to select which capcity of car to print" << endl; 
-    if(keyStroke == 2){
-       printAllVehicles();
-    }else if(keyStroke == 3){
-        
-
-    }else{
-
-        cout << "Please choose from the list"<< endl;
-        menu(); 
+    int caps = 0; 
+    cout << "please choose from the list" << endl; 
+    cout << "to print out the entire inventory of cars press 1" << endl; 
+    cout << "the choose a capacity press 2" << endl; 
+    cout << "to enter more car information press 3" << endl;
+    cout << "to quite press 4" << endl;
+    cin >> keyStroke; 
+    
+    if(keyStroke == 1){
+        carList.printCarList();
+        cout << endl; 
+        menu();
     }
-}
-void printAllVehicles(){
-    if()
-    for(int)
-}
-carRental* insertInfo(){
-
+    if(keyStroke == 2){
+        cout << "Enter the capacity: ";
+        cin >> caps; 
+        carList.printCapacity(caps);
+        cout << endl;
+        menu();
+    }
+    if(keyStroke == 3){
+        cout << "enter the car type " << endl;
+        string cType; 
+        cin >> cType; 
+        cout << "enter the brand name " << endl; 
+        string bName; 
+        cin >> bName; 
+        cout << "enter the number in stock " << endl;
+        int sNum;
+        cin >> sNum; 
+        cout << "enter the capacity " << endl; 
+        int cNum; 
+        cin >> cNum; 
+        carNum3.setTypes(cType,bName,sNum,cNum);
+        carList.insertLast(carNum3); 
+        menu();
+    }if(keyStroke == 4){
+        cout << endl;
+    }
+    else{
+        cout << "please choose from the list" << endl;
+        cout << endl;  
+        menu();
+    }
 }

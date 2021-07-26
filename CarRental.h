@@ -1,117 +1,75 @@
 #include <iostream>
 #include <string>
+#include "unorderLinkedList.h"
 using namespace std; 
 
-class carRental{
+class carTypes{
 
 protected: 
     string type; 
     string brand;
     int number; 
     int capacity; 
-    carRental* link; 
 public: 
-    carRental(){
+    carTypes(){
         type = "";
         brand = "";
         number = 0; 
         capacity = 0; 
     }; 
-    carRental(string type,string brand, int num, int cap){
+    carTypes(string type,string brand, int num, int cap){
         type = type; 
         brand = brand; 
         number = num; 
         capacity = cap;
     };
-};
-
-class car: private carRental{
-    carRental* link; 
-public:
-    car():carRental(){
-       link  = nullptr;  
-    }
-    car(string type, string brand, int num, int cap):carRental(){
-        type = type;
-        brand = brand; 
-        number = num;
-        capacity = cap; 
-        link = nullptr;  
-    }
-
-    void setVechicalInfo(string type, string brand, int num, int cap){
-        type = type;
-        brand = brand; 
-        number = num; 
-        capacity = cap; 
-    }
-    void setNextPointer(carRental* NC){link = NC;}
-    int getCapcity(){return capacity;}
-    carRental* setNextPointer(){return link; }
-
-
-};
-class SUV: private carRental{
-    carRental* link;
-public: 
-    SUV():carRental(){
-        link = nullptr;
-    }
-    SUV(string type, string brand, int num, int cap):carRental(){
-        type = type;
-        brand = brand; 
-        number = num;
-        capacity = cap; 
-         
-    }
-    void setVechicalInfo(string type, string brand, int num, int cap){
-        type = type;
-        brand = brand; 
-        number = num; 
-        capacity = cap; 
-    }
-    void setNextPointer(carRental* NC){link = NC;}
-    int getCapcity(){return capacity;}
-    carRental* setNextPointer(){return link; }
-
-};
-class truck: private carRental{
-    carRental* link; 
-public: 
-    truck():carRental(){
-        link = nullptr;
-    }
-    truck(string type, string brand, int num, int cap):carRental(){
-        type = type;
-        brand = brand; 
-        number = num;
-        capacity = cap;   
-    }
-    void setVechicalInfo(string type, string brand, int num, int cap){
-        type = type;
-        brand = brand; 
-        number = num; 
-        capacity = cap; 
-    }
-    void setNextPointer(carRental* NC){link = NC;}
-    int getCapcity(){return capacity;}
-    carRental* getNextPointer(){return link; }
-};
-class motorcycle: private carRental{
-    carRental* link;  
-public: 
-    motorcycle():carRental(){
-        link = nullptr;
-    }
-    motorcycle(string type, string brand, int num, int cap):carRental(){
-        type = type;
-        brand = brand; 
-        number = num;
-        capacity = cap; 
-        link = nullptr;
-    }
     
-    void setNextPointer(carRental* NC){link = NC;}
-    int getCapcity(){return capacity;}
-    carRental* setNextPointer(){return link; }
+    
+    void setTypes(string t,string b, int num, int cap){
+        type = t; 
+        brand = b; 
+        number = num; 
+        capacity = cap;
+    }
+    int getNumber(){return number;}
+    string getType(){return type;}
+    int getCap(){return capacity;}
+    string getBrand(){return brand;}
+    
+};
+
+class carRental: public unorderLinkedList<carTypes>{
+    
+public: 
+
+    void printCapacity(int c){
+        Node<carTypes> *curr;
+        if(first == nullptr){
+            cout << "All cars have been sold." << endl; 
+        }else{
+            curr = first;
+            while(curr != nullptr){
+                if(c == curr->info.getCap()){
+                    cout << curr->info.getType() << ", " << curr->info.getBrand() << "; there are " << curr->info.getNumber() << " in stock" << endl ;
+                    curr = curr->link; 
+                }else{
+                    curr = curr->link; 
+                }
+            }
+        }
+    }
+
+    void printCarList(){
+        Node<carTypes>* curr;
+        if(first == nullptr){
+            cout << "All cars have been sold." << endl; 
+        }else{
+            curr = first; 
+        while(curr != nullptr){
+            cout << curr->info.getType() << ", " << curr->info.getBrand() << "; there are " << curr->info.getNumber() << " in stock" << endl ;
+             curr = curr->link; 
+            } 
+        }
+        
+    }
 };

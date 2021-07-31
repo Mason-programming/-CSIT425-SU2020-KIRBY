@@ -17,5 +17,6 @@
   "C_Cpp_Runner.warningsAsError": false,
   "files.associations": {
     "string": "cpp"
-  }
+  },
+  "git.ignoreLimitWarning": true
 }

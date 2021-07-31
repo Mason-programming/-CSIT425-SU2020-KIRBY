@@ -1,4 +1,3 @@
-using namespace std; 
 
 template <class type>
 struct Node{

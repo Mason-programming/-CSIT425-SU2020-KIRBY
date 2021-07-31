@@ -4,7 +4,7 @@
 using namespace std; 
 
 class carTypes{
-
+// protected varibles 
 protected: 
     string type; 
     string brand;
@@ -23,14 +23,14 @@ public:
         number = num; 
         capacity = cap;
     };
-    
-    
+    // mutator functions for setting the car values 
     void setTypes(string t,string b, int num, int cap){
         type = t; 
         brand = b; 
         number = num; 
         capacity = cap;
     }
+    // get the values from the carTypes class 
     int getNumber(){return number;}
     string getType(){return type;}
     int getCap(){return capacity;}
@@ -38,6 +38,7 @@ public:
     
 };
 
+// carRental sub class derived from unorder linked list with carTypes as the data type 
 class carRental: public unorderLinkedList<carTypes>{
     
 public: 
@@ -52,8 +53,13 @@ public:
                 if(c == curr->info.getCap()){
                     cout << curr->info.getType() << ", " << curr->info.getBrand() << "; there are " << curr->info.getNumber() << " in stock" << endl ;
                     curr = curr->link; 
-                }else{
+
+                }
+                else{
                     curr = curr->link; 
+                    if(curr->link == nullptr){
+                        break; 
+                    }
                 }
             }
         }
@@ -68,6 +74,9 @@ public:
         while(curr != nullptr){
             cout << curr->info.getType() << ", " << curr->info.getBrand() << "; there are " << curr->info.getNumber() << " in stock" << endl ;
              curr = curr->link; 
+             if(curr == nullptr){
+                 break; 
+             }
             } 
         }
         
